@@ -4,11 +4,11 @@
   "description": "Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf dist/*",
-    "copy": "cp -R src/* dist",
-    "build:html": "html-minifier --input-dir dist --output-dir dist --file-ext html --collapse-whitespace --minify-js",
-    "build:css": "find dist -name *.css -type f -print0 | xargs -0 -I{} npx uglifycss {} --ugly-comments --output {}",
-    "build:js": "find dist -name *.js -type f -print0 | xargs -0 -I{} npx uglifyjs {} -m -c -o {}",
+    "clean": "rm -rf docs/*",
+    "copy": "mkdir -p docs && cp -R src/* docs",
+    "build:html": "html-minifier --input-dir docs --output-dir docs --file-ext html --collapse-whitespace --minify-js",
+    "build:css": "find docs -name *.css -type f -print0 | xargs -0 -I{} npx uglifycss {} --ugly-comments --output {}",
+    "build:js": "find docs -name *.js -type f -print0 | xargs -0 -I{} npx uglifyjs {} -m -c -o {}",
     "build:all": "npm run build:html && npm run build:css && npm run build:js",
     "build": "npm run clean && npm run copy && npm run build:all"
   },
