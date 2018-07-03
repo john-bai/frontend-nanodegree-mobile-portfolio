@@ -10,7 +10,7 @@
     "build:css": "find docs -name *.css -type f -print0 | xargs -0 -I{} npx uglifycss {} --ugly-comments --output {}",
     "build:js": "find docs -name *.js -type f -print0 | xargs -0 -I{} npx uglifyjs {} -m -c -o {}",
     "build:img": "imagemin docs/img/* -o docs/img && imagemin docs/views/images/* -o docs/views/images",
-    "build:all": "npm run build:html && npm run build:css && npm run build:js && npm run build:img",
+    "build:all": "npm run build:html && npm run build:css && npm run build:js && npm run build:img && gzip -r docs",
     "build": "npm run clean && npm run copy && npm run build:all"
   },
   "devDependencies": {
