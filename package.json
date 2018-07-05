@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf docs/*",
     "copy": "mkdir -p docs && cp -R src/* docs",
-    "build:html": "html-minifier --input-dir docs --output-dir docs --file-ext html --collapse-whitespace --minify-js",
+    "build:html": "html-minifier --input-dir docs --output-dir docs --file-ext html --collapse-whitespace --remove-comments --minify-js",
     "build:css": "find docs -name *.css -type f -print0 | xargs -0 -I{} npx uglifycss {} --ugly-comments --output {}",
     "build:js": "find docs -name *.js -type f -print0 | xargs -0 -I{} npx uglifyjs {} -m -c -o {}",
     "build:img": "imagemin docs/img/* -o docs/img && imagemin docs/views/images/* -o docs/views/images",
